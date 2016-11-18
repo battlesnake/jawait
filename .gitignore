@@ -1,0 +1,12 @@
+target/
+.*.swp
+.*.swo
+pom.xml.*
+release.properties
+buildNumber.properties
+.mvn/timing.properties
+link/
+
+.classpath
+.project
+.settings/
