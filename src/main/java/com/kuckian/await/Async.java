@@ -28,12 +28,17 @@ public class Async<KeyType, ResultType> {
 		}
 		return memo.result;
 	}
-
-	public boolean reject(KeyType key, Exception error) {
+	
+	private MemoStruct completing(KeyType key) {
 		MemoStruct memo;
 		synchronized (list) {
 			memo = list.remove(key);
 		}
+		return memo;
+	}
+
+	public boolean reject(KeyType key, Exception error) {
+		MemoStruct memo = completing(key);
 		if (memo == null) {
 			return false;
 		}
@@ -43,10 +48,7 @@ public class Async<KeyType, ResultType> {
 	}
 
 	public boolean resolve(KeyType key, ResultType value) {
-		MemoStruct memo;
-		synchronized (list) {
-			memo = list.remove(key);
-		}
+		MemoStruct memo = completing(key);
 		if (memo == null) {
 			return false;
 		}
