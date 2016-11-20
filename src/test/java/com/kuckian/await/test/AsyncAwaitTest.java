@@ -1,4 +1,4 @@
-package com.kuckian.await;
+package com.kuckian.await.test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -6,11 +6,13 @@ import static org.junit.Assert.assertTrue;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
+import com.kuckian.await.Async;
+import com.kuckian.await.AsyncTimeoutException;
+
+/* @author Mark Cowan, Open Cosmos, mark@battlesnake.co.uk */
 public class AsyncAwaitTest {
 
 	private class AsyncReject extends Thread {
@@ -23,6 +25,7 @@ public class AsyncAwaitTest {
 			start();
 		}
 
+		@Override
 		public void run() {
 			try {
 				Thread.sleep(100);
@@ -44,6 +47,7 @@ public class AsyncAwaitTest {
 			start();
 		}
 
+		@Override
 		public void run() {
 			try {
 				Thread.sleep(100);
@@ -59,14 +63,6 @@ public class AsyncAwaitTest {
 	private static class TestException extends Exception {
 		public TestException() {
 		}
-	}
-
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
 	}
 
 	private Async<Integer, Integer> async;

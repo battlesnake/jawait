@@ -28,7 +28,7 @@ public class Async<KeyType, ResultType> {
 		}
 		return memo.result;
 	}
-	
+
 	private MemoStruct completing(KeyType key) {
 		MemoStruct memo;
 		synchronized (list) {
