@@ -1,0 +1,23 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'com.kuckian'
+version = '0.0.0'
+
+description = """"""
+
+sourceCompatibility = 8
+targetCompatibility = 8
+
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+dependencies {
+	testCompile 'junit:junit:4.12'
+}
+
+repositories {
+
+	maven { url "http://repo.maven.apache.org/maven2" }
+}

@@ -1,11 +1,7 @@
-target/
+.gradle/
+build/
 .*.swp
 .*.swo
-pom.xml.*
-release.properties
-buildNumber.properties
-.mvn/timing.properties
-link/
 
 .classpath
 .project
