@@ -1,5 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'maven'
+apply plugin: 'eclipse'
 
 group = 'com.kuckian'
 version = '0.0.0'
@@ -20,4 +21,12 @@ dependencies {
 repositories {
 
 	maven { url "http://repo.maven.apache.org/maven2" }
+}
+
+sourceSets {
+	main {
+		java {
+			srcDir "src/main/java"
+		}
+	}
 }
