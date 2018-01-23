@@ -3,7 +3,7 @@ apply plugin: 'maven'
 apply plugin: 'eclipse'
 
 group = 'com.kuckian'
-version = '0.0.0'
+version = '1.0'
 
 description = """"""
 
@@ -19,8 +19,7 @@ dependencies {
 }
 
 repositories {
-
-	maven { url "http://repo.maven.apache.org/maven2" }
+	mavenCentral()
 }
 
 sourceSets {
